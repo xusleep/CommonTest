@@ -12,9 +12,10 @@ public class ClassLoaderTest {
 				try
 				{
 					String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
+					System.out.println("fileName is " + fileName);
 					InputStream is = getClass().getResourceAsStream(fileName);
 					if(is == null){
-						return super.loadClass(fileName);
+						return super.loadClass(name);
 					}
 					byte[] b = new byte[is.available()];
 					is.read(b);
